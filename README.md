@@ -19,7 +19,22 @@ This project highlights how encrypted data can be safely transmitted over a netw
 
 ## 🗂️ Project Structure
 
-
+TheTechTitans/
+├── Sender.py # File sender with AES-GCM encryption
+├── Receiver.py # File receiver with AES-GCM decryption
+├── index.html # Frontend entry HTML
+├── package.json # Frontend dependencies
+├── tailwind.config.ts # Tailwind CSS configuration
+├── tsconfig.json # TypeScript configuration
+├── src/
+│ ├── main.tsx # React entry point
+│ ├── App.tsx # Root React component
+│ ├── components/
+│ │ ├── SecurityBanner.tsx # Security alert banner
+│ │ ├── SecurityBlockScreen.tsx # Security warning screen
+│ │ └── TrustBanner.tsx # Trust & safety banner
+│ └── ui/ # Reusable UI components
+└── README.md
 
 ---
 
