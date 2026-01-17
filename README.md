@@ -35,46 +35,32 @@ This project highlights how encrypted data can be safely transmitted over a netw
 ## 🐍 Python Setup (Secure File Transfer)
 
 ### Install Dependency
-
-
 pip install cryptography
 
 
 python Receiver.py
+
 python Sender.py
 
 🛠️ Tech Stack
 
 Backend & Security
-
 Python
-
 Socket Programming
-
 Cryptography (AES-GCM)
 
 Frontend
-
 React
-
 TypeScript
-
 Vite
-
 Tailwind CSS
-
 shadcn/ui
 
 🎯 Use Cases
-
 Secure file transfer demonstrations
-
 Cybersecurity academic projects
-
 Hackathon submissions
-
 Learning encryption and network security
 
 👨‍💻 Team
-
 TheTechTitans
