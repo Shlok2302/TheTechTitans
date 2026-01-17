@@ -42,25 +42,30 @@ python Receiver.py
 
 python Sender.py
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-Backend & Security
-Python
-Socket Programming
-Cryptography (AES-GCM)
+### Backend & Security
+- Python
+- Socket Programming
+- Cryptography (AES-GCM)
 
-Frontend
-React
-TypeScript
-Vite
-Tailwind CSS
-shadcn/ui
+### Frontend
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui
 
-🎯 Use Cases
-Secure file transfer demonstrations
-Cybersecurity academic projects
-Hackathon submissions
-Learning encryption and network security
+---
 
-👨‍💻 Team
-TheTechTitans
+## 🎯 Use Cases
+- Secure file transfer demonstrations
+- Cybersecurity academic projects
+- Hackathon submissions
+- Learning encryption and network security
+
+---
+
+## 👨‍💻 Team
+**TheTechTitans**
+
