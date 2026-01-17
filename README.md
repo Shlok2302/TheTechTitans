@@ -36,7 +36,7 @@ This project highlights how encrypted data can be safely transmitted over a netw
 
 ### Install Dependency
 
-```bash
+
 pip install cryptography
 
 
