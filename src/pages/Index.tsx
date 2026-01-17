@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { RefreshCw } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { TopAppBar } from "@/components/TopAppBar";
 import { SecurityBanner } from "@/components/SecurityBanner";
 import { MessageCard } from "@/components/MessageCard";
@@ -45,32 +46,19 @@ const bankMessages = [
   },
 ];
 
-const promotions = [
-  {
-    id: 1,
-    bankName: "HDFC Bank",
-    preview: "Get 10% cashback on all online purchases this weekend! Use code WEEKEND10. T&C apply.",
-    timestamp: "Today, 8:00 AM",
-    isVerified: true,
-  },
-  {
-    id: 2,
-    bankName: "ICICI Bank",
-    preview: "Pre-approved personal loan up to ₹10 lakhs at just 10.5% p.a. Apply now!",
-    timestamp: "Yesterday, 10:00 AM",
-    isVerified: true,
-  },
-];
-
 export default function Index() {
-  const [activeTab, setActiveTab] = useState<"messages" | "promotions">("messages");
+  const navigate = useNavigate();
   const [isRefreshing, setIsRefreshing] = useState(false);
-
-  const currentMessages = activeTab === "messages" ? bankMessages : promotions;
 
   const handleRefresh = () => {
     setIsRefreshing(true);
     setTimeout(() => setIsRefreshing(false), 1500);
+  };
+
+  const handleTabChange = (tab: "messages" | "promotions") => {
+    if (tab === "promotions") {
+      navigate("/promotions");
+    }
   };
 
   return (
@@ -97,40 +85,19 @@ export default function Index() {
 
       {/* Message List */}
       <div className="space-y-3 px-4">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, x: activeTab === "messages" ? -20 : 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: activeTab === "messages" ? 20 : -20 }}
-            transition={{ duration: 0.2 }}
-            className="space-y-3"
-          >
-            {currentMessages.map((message, index) => (
-              <MessageCard
-                key={message.id}
-                bankName={message.bankName}
-                preview={message.preview}
-                timestamp={message.timestamp}
-                isVerified={message.isVerified}
-                index={index}
-              />
-            ))}
-          </motion.div>
-        </AnimatePresence>
-
-        {currentMessages.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex flex-col items-center justify-center py-16 text-center"
-          >
-            <p className="text-muted-foreground">No messages yet</p>
-          </motion.div>
-        )}
+        {bankMessages.map((message, index) => (
+          <MessageCard
+            key={message.id}
+            bankName={message.bankName}
+            preview={message.preview}
+            timestamp={message.timestamp}
+            isVerified={message.isVerified}
+            index={index}
+          />
+        ))}
       </div>
 
-      <BottomNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+      <BottomNavigation activeTab="messages" onTabChange={handleTabChange} />
     </div>
   );
 }
